@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let namaSiswa = "  Haidar Rafi  "; //string adalah tipe data yang digunakan untuk menyimpan teks, dan string dapat diubah menjadi huruf kapital dan dapat dihapus spasi di awal dan akhir string
+      let contohKapital = "ATHALLAH IZZAN";
+      let namaKapital = namaSiswa.toUpperCase(); //topUpperCase() untuk mengubah huruf menjadi kapital itu adalah salah satu bentuk method
+      let namaRapi = namaSiswa.trim(); //trim() untuk menghapus spasi di awal dan akhir string itu adalah salah satu bentuk method
+      let namaKecil = contohKapital.toLowerCase(); //toLowerCase() untuk mengubah huruf menjadi kecil itu adalah salah satu bentuk method
+      let namaKota = "Semarang";
+      let namaKotaKapital = namaKota.toUpperCase();
+
+      console.log(namaSiswa);
+      console.log("Setelah Kapital:", namaKapital);
+      console.log("Setelah Trim:", namaRapi);
+      console.log("Setelah Kecil:", namaKecil);
+      console.log("Nama Kota setelah Kapital:", namaKotaKapital);
+
+      // let playlist = [
+      //     "Negoro Angin",
+      //     "Lathi",
+      //     "Hati-Hati di Jalan",
+      //     "Cinta Luar Biasa",
+      // ];
+      //   console.log("Playlist Awal:", playlist);
+
+      //   //   1. Push () -> Menambahkan elemen baru ke akhir array/paling belakng --> Intinya nambah lagu di akhir list
+      //   playlist.push("Evaluasi");
+      //   console.log("Setelah Push:", playlist);
+
+      //   //   2. Unshift () -> Menambahkan elemen baru ke depan array/paling depan --> Intinya nambah di awal list
+      //   playlist.unshift("Sampai Jadi Debu");
+      //   console.log("Setelah Unshift:", playlist);
+
+      //   //   3. Pop () -> Menghapus elemen palunng belakang
+      //   playlist.pop(); //gausah dimaskin nama lagu yang dihapus gapapa, karena yang penting ada id/variabel yang dikaitin apa
+      //   console.log("Setelah Pop:", playlist);
+
+      //   //   4. Shift () -> Menghapus elemen paling depan
+      //   playlist.shift(); //gausah dimaskin nama lagu yang dihapus gapapa, karena yang penting ada id/variabel yang dikaitin apa
+      //   console.log("Setelah Shift:", playlist);
+
+      //   //   5. Splice () -> Menghapus elemen tertentu
+      //   playlist.splice(1, 1); //menghapus lagu di index ke-1 sebanyak 1 lagu
+      //   console.log("Setelah Splice:", playlist);
+
+      //   1. Includes () -> Pengecekan ada atau tidak
+      let adaKomang = playlist.includes("Komang");
+      console.log("Apakah ada Lagu Komang?", adaKomang);
+
+      let adaLathi = playlist.includes("Lathi");
+      console.log("Apakah ada Lagu Lathi?", adaLathi);
+
+      // 2. Find() -> cari lagu yang panjang huruf nya lebih dari 6
+      let laguPanjang = playlist.find((lagu) => lagu.length > 6);
+      console.log("Lagu > 6 huruf:", laguPanjang);
+
+      let olahraga = ["Sepak bola", "Bulu Tangkis", "Renang", "Lari"];
+
+      console.log("Olahraga list:", olahraga);
+      let adaRenang = playlist.includes("Renang");
+      console.log("Apakah ada Lagu Komang?", adaRenang);
+      let olahragaPanjang = olahraga.find((olahraga) => olahraga.length < 5);
+      console.log("Lagu > 6 huruf:", olahragaPanjang);
+    </script>
+  </body>
+</html>

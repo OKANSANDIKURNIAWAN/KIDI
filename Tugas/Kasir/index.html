@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tugas Kasir SIJA</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2>Rumah Makan SIJA</h2>
+
+      <label>Berikut Menunya:</label>
+      <div class="scroll-tabel">
+        <table>
+          <thead>
+            <tr>
+              <th>Nama Menu</th>
+              <th>Harga</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="tabel-barang"></tbody>
+        </table>
+      </div>
+
+      <!-- Form Transaksi -->
+      <div class="form-group">
+        <label>Barang Terpilih:</label>
+        <input
+          type="text"
+          id="barang-terpilih"
+          readonly
+          placeholder="Klik tombol 'Pilih' di atas"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>Jumlah Beli:</label>
+        <input type="number" id="jumlah" value="1" min="1" />
+      </div>
+
+      <div class="form-group">
+        <label>Level Member:</label>
+        <select id="status-member">
+          <option value="NON">Bukan Member (0%)</option>
+          <option value="BRONZE">Bronze (5%)</option>
+          <option value="SILVER">Silver (10%)</option>
+          <option value="GOLD">Gold (15%)</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Nominal Uang Bayar (Rp):</label>
+        <input
+          type="number"
+          id="uang-bayar"
+          placeholder="Contoh: 300000 (tanpa titik yaw)"
+        />
+      </div>
+
+      <button class="btn-hitung" onclick="hitungTransaksi()">
+        Bayar Sekarang
+      </button>
+      <div id="hasil-struk" style="display: none"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Constructor dalam class adalah method khusus yang dipanggil saat objek dari class tersebut dibuat, untuk mengisi template atau dama di awal data -->
+
+    <!-- for off itu objek (misal brand sepatu kaya ada apa aja(jenisnya apa aja)) -->
+
+    <!-- for in itu array (misal kaya iphone ram nya apa dll (secara detil di 1 objek)) -->
+
+    <!-- nama = this.nama kenapa harus ada this? untuk menemukan id nama/memanggil properti -->
+
+    <!-- OOP : Class Simple untuk cetak data siswa , kaya class gitu. OOP singkatan dari Object-Oriented Programming-->
+
+    <!-- <script>
+      class Siswa {
+        constructor(nama, nilai) {
+          this.nama = nama;
+          this.nilai = nilai;
+        }
+
+        // Method object & Swutch case
+        getGrade() {
+          switch (true) {
+            case this.nilai >= 80:
+              return "A  (Lulus)";
+            case this.nilai >= 70:
+              return "B  (Lulus)";
+            default:
+              return "C  (Remidi)";
+          }
+        }
+      }
+
+      //   2. Fundamental & array
+      const kelasRpl = [
+        new Siswa("Ahmad", 90),
+        new Siswa("Retta", 100),
+        new Siswa("Iqbal", 90),
+        new Siswa("Atha", -10),
+      ];
+
+      // Function & Error Handling
+      function olahNilaiKelas(daftarSiswa) {
+        console.log("=== Data Nilai Kelas RPL ===");
+
+        try {
+          // Looping for...of
+          for (let siswa of daftarSiswa) {
+            if (siswa.nilai < 0) {
+              throw new Error(`Nilai ${siswa.nama} tidak boleh minus!`);
+            }
+            console.log(
+              `Nama: ${siswa.nama} | Nilai: ${siswa.nilai} | Status: ${siswa.getGrade()}`,
+            );
+          }
+        } catch (error) {
+          console.log(`Terjadi Error: ${error.message}`);
+        } finally {
+          console.log("========");
+          console.log("Selesai diproses");
+        }
+      } -->
+
+    <!-- // syncrounus itu urut yaw 
+    // asyncrounus itu tidak berutan -->
+
+    <script>
+      class Kucing {
+        constructor(nama, suara) {
+          this.nama = nama;
+          this.suara = suara;
+        }
+
+        // Method object & Swutch case
+        bersuara() {
+          switch (true) {
+            case this.suara === "meow":
+              return "Kucing bersuara meow";
+          }
+        }
+      }
+
+      //   2. Fundamental & array
+      const kelasRpl = [new Kucing("Mimi", "meow")];
+
+      // Function & Error Handling
+      //   function olahNilaiKelas(daftarSiswa) {
+      //     console.log("=== Data Nilai Kelas RPL ===");
+
+      try {
+        // Looping for...of
+        for (let kucing of daftarSiswa) {
+          if (kucing.suara === "") {
+            throw new Error(` ${kucing.nama} dengan suara ${kucing.suara}`);
+          }
+          console.log(
+            `Nama: ${kucing.nama} | Suara: ${kucing.suara} | Status: ${kucing.bersuara()}`,
+          );
+        }
+      } catch (error) {
+        console.log(`Terjadi Error: ${error.message}`);
+      } finally {
+        console.log("========");
+        console.log("Selesai diproses");
+      }
+      //   }
+    </script>
+  </body>
+</html>

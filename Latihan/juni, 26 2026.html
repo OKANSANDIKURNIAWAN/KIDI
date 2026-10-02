@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+        background-color: rgb(255, 61, 61);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+      }
+      .card {
+        background-color: white;
+        width: 90%;
+        max-width: 600px;
+        border-radius: 12px;
+        overflow: hidden; /* untuk memastikan isi card tidak keluar dari batas kartu */
+        box-shadow: 0px 4px 50px rgb(0, 0, 0);
+        /* untuk mengatur kiri kanan, atas bawah, dan tingkat keburaman */
+        padding: 20px;
+
+        display: flex;
+        flex-direction: column;
+        /* untuk mengatur elemen dalam card secara vertikal */
+        gap: 20px;
+        text-align: center;
+      }
+      .foto-profil {
+        height: 120px;
+        width: 120px;
+        background-color: rgb(253, 240, 0);
+        color: white;
+        border-radius: 50%; /*untuk membuat foto profil berbentuk lingkaran*/
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto; /* untuk membuat foto profil berada di tengah */
+      }
+      .status {
+        color: rgb(230, 14, 86);
+        font-weight: bold;
+      }
+
+      /* Responsive*/
+      @media (min-width: 768px) and (max-width: 768px) {
+        /*untuk mengatur tampilan pada layar dengan lebar minimal 768px dan maksimal 1023px (tablet)*/
+        .card {
+          flex-direction: row; /* untuk mengatur elemen dalam card secara horizontal */
+          text-align: left;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="foto-profil">
+        <img src="Latihan/SISTEM INFORMASI.png" alt="Foto Profil" />
+      </div>
+
+      <div class="konten-profil">
+        <h2>Okan Sandi Kurniawan</h2>
+        <p class="status">Siswa SIJA</p>
+        <p class="desc">Halo saya seorang siswa SIJA 2</p>
+      </div>
+    </div>
+  </body>
+</html>

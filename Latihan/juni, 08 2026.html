@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid pada CSS</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      .grid-container {
+        display: grid;
+        /* dia bisa ke samping (vertikal dan horizontal) */
+        grid-template-columns: 200px 1fr 250px;
+        /* misalnya  layar desktop, sebelah kiri ngambil 200px sebelah kanan ngambil 250px. Nah 1fr artinya fragmented yang dimana artinya dia ngambil sisa dari 200 dan 250px */
+        font-family: Georgia, "Times New Roman", Times, serif;
+        font-weight: bold;
+        color: #fffffe;
+      }
+      .grid-container h1 {
+        color: black;
+      }
+      .grid-container h3 {
+        color: rgb(43, 39, 39);
+      }
+      .grid-container .header {
+        grid-column: 1/4;
+        /* bayangin aja ada 4 garis, maka kalo 1/4 maka dia membentang sampai garis ke 4 atau full layar. Kalo 1/3 maka sidebar akan mengisi 1 barisnya*/
+        background-color: #ffd400;
+      }
+      .sidebar {
+        background-color: #ffc300;
+        grid-column: 1;
+        color: black;
+      }
+
+      .grid-item main {
+        color: black;
+      }
+      /* .grid-item {} */
+      .main {
+        background-color: #ff8c00;
+        color: rgb(33, 29, 29);
+      }
+      .rightbar {
+        background-color: #ff5f00;
+      }
+      .footer {
+        background-color: #c40c0c;
+        grid-column: 1/4;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item header">
+        <h1>Dashboard Admin</h1>
+        <h3>Okan Sandi Kurniawan</h3>
+      </div>
+      <div class="grid-item sidebar">
+        <ul>
+          <p>Home</p>
+          <p>About</p>
+          <p>Contact</p>
+        </ul>
+      </div>
+      <div class="grid-item main">
+        <p>
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nam
+          consequatur adipisci voluptate provident officia ipsa, quaerat dolore.
+          Vero error, illum nemo sit numquam dicta. Aut, porro accusamus
+          deserunt saepe et, dicta est quidem aliquam quo incidunt accusantium,
+          delectus eaque dolorum?
+        </p>
+      </div>
+      <div class="grid-item rightbar">RIGHT BAR</div>
+      <div class="grid-item footer">
+        <p>Copyright 2026</p>
+      </div>
+      <p>copyright</p>
+    </div>
+  </body>
+</html>

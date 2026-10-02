@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Dashboard</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="grid-container">
+      <header class="header">
+        <div class="hero">
+          <h1>Ringkasan Fundamental JavaScript</h1>
+          <h3>Berikut beberapa contoh penggunaan JavaScript</h3>
+        </div>
+      </header>
+
+      <main class="maincontent"> 
+        <di class="card-wrapper">
+          <!-- Change HTML Content -->
+          <div class="card">
+            <div class="card-top"> 
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 576 512"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 150.6 182.6c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+            </div>
+           
+            <div class="card-body">
+              <h3>Change HTML Content</h3>
+
+              <p class="description">
+                Mengubah isi elemen HTML menggunakan JavaScript.
+              </p>
+
+              <p id="demo">Aku akan berubah!</p>
+
+              <button
+                onclick="
+                  document.getElementById('demo').innerHTML =
+                    'Aku sudah berubah!'
+                "
+              >
+                Klik Aku
+              </button>
+            </div>
+          </div>
+
+          <!-- Change HTML Attribute -->
+          <div class="card">
+            <div class="card-top">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 576 512"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 150.6 182.6c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+            </div>
+            <div class="card-body">
+              <h3>Change HTML Attribute</h3>
+              <p class="description">Mengubah atribut HTML, seperti gambar.</p>
+
+              <img
+                id="myImage"
+                src="https://www.w3schools.com/js/pic_bulboff.gif"
+                alt=""
+              />
+
+              <div class="button-group">
+                <button
+                  onclick="
+                    document.getElementById('myImage').src =
+                      'https://www.w3schools.com/js/pic_bulbon.gif'
+                  "
+                >
+                  Color
+                </button>
+
+                <button
+                  onclick="
+                    document.getElementById('myImage').src =
+                      'https://www.w3schools.com/js/pic_bulboff.gif'
+                  "
+                >
+                  Black & White
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Change Style -->
+          <div class="card">
+            <div class="card-top">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 576 512"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 150.6 182.6c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+            </div>
+            <div class="card-body">
+              <h3>Change HTML Style</h3>
+
+              <p class="description">
+                Mengubah warna teks menggunakan properti style.
+              </p>
+
+              <p id="demo1">Liat Warnakuu</p>
+
+              <div class="button-group">
+                <button
+                  onclick="document.getElementById('demo1').style.color = 'red'"
+                >
+                  Red
+                </button>
+
+                <button
+                  onclick="
+                    document.getElementById('demo1').style.color = 'blue'
+                  "
+                >
+                  Blue
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Show Hide -->
+
+          <div class="card">
+            <div class="card-top">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 576 512"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 150.6 182.6c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+            </div>
+            <div class="card-body">
+              <h3>Showing & Hiding Element</h3>
+
+              <p class="description">Menampilkan atau menyembunyikan elemen.</p>
+
+              <p id="demo2">Aku dapat menghilang</p>
+
+              <div class="button-group">
+                <button
+                  onclick="
+                    document.getElementById('demo2').style.display = 'none'
+                  "
+                >
+                  Hilang!
+                </button>
+
+                <button
+                  onclick="
+                    document.getElementById('demo2').style.display = 'block'
+                  "
+                >
+                  Muncul!
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Applying Computation/kalkulator -->
+            <div class="card card-calc">
+              <div class="card-top">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 576 512"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 150.6 182.6c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+              </div>
+              <div class="card-body">
+                <h3>Kalkulator</h3>
+
+                <p class="description">
+                  Kalkulator sederhana dengan pilihan operator menggunakan
+                  JavaScript.
+                </p>
+
+                <table width="250px" border="0">
+                  <tr>
+                    <th>Box 1</th>
+                    <th></th>
+                    <th>Box 2</th>
+                    <th></th>
+                    <th>Result</th>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="text" id="box1" oninput="calculate()" />
+                    </td>
+                    <td>
+                      <select id="operator" onchange="calculate()">
+                        <option value="+">+</option>
+                        <option value="-">-</option>
+                        <option value="*">x</option>
+                        <option value="/">:</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input type="text" id="box2" oninput="calculate()" />
+                    </td>
+                    <td>=</td>
+                    <td><input id="result" /></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+
+        <!-- Function -->
+          <div class="card">
+            <div class="card-top">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 576 512"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 150.6 182.6c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+            </div>
+            <div class="card-body">
+              <h3>Function</h3>
+              <p class="description">
+                Function digunakan untuk membuat blok kode yang dapat digunakan kembali. Pada contoh ini, function menerima nama siswa, nama pelajaran, dan deskripsi rasa untuk menghasilkan sebuah kalimat.
+              </p>
+              <p id="hasilFunction">
+                Klik tombol untuk melihat hasil function di Console.
+              </p>
+              <button onclick="tampilkanPesanan()">Jalankan Function</button>
+            </div>
+          </div>
+
+
+          <!-- Syntax Function -->
+           <div class="card">
+            <div class="card-top">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 576 512"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 150.6 182.6c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+            </div>
+            <div class="card-body">
+              <h3>Syntax Function</h3>
+              <p class="description">
+                Struktur dasar penulisan function dalam JavaScript.
+              </p>
+              <pre>function namaFunction(parameter) {<br>// kode yang dijalankan}</pre>
+              <p>
+                Function dapat memiliki parameter dan kode yang dijalankan
+                di dalam kurung kurawal.
+              </p>
+            </div>
+          </div>
+
+          <!-- Alert Function -->
+          <div class="card">
+            <div class="card-top">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 576 512"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 150.6 182.6c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+            </div>
+            <div class="card-body">
+              <h3>Alert Function</h3>
+              <p class="description">
+                Function dapat digunakan untuk menampilkan pesan menggunakan alert().
+              </p>
+              <button onclick="cekStatus()">Cek Status</button>
+            </div>
+          </div>
+
+          <!-- Return -->
+          <div class="card">
+            <div class="card-top">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 576 512"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 150.6 182.6c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+            </div>
+              <div class="card-body">
+                <h3>Return</h3>
+                <p class="description">
+                  Return digunakan untuk mengembalikan nilai dari sebuah function. Pada contoh ini, nilai 5 dan 4 dimasukkan ke dalam function perkalian, kemudian dikalikan sehingga menghasilkan nilai 20.
+                </p>
+                <p>
+                  Hasil perkalian akan muncul di Console.
+                </p>
+                <button onclick="tampilkanHasil()">Hitung</button>
+              </div>
+            </div>
+
+            <!-- STRING METHOD -->
+            <div class="card">
+            <div class="card-top">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 576 512"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 150.6 182.6c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+            </div>
+            <div class="card-body">
+              <h3>String Method</h3>
+              <p class="description">
+                Method untuk mengubah dan merapikan data berupa teks. Hasil akan ditampilkan di Console.
+              </p>
+              <pre>toUpperCase() <br>trim() <br>toLowerCase()</pre>
+              <button onclick="StringMethod()">Jalankan Method String</button>
+            </div>
+          </div>
+
+          <!-- ARRAY METHOD -->
+            <div class="card">
+            <div class="card-top">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 576 512"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(255, 255, 255)" d="M360.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm64.6 136.1c-12.5 12.5-12.5 32.8 0 45.3l73.4 73.4-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l96-96c12.5-12.5 12.5-32.8 0-45.3l-96-96c-12.5-12.5-32.8-12.5-45.3 0zm-274.7 0c-12.5-12.5-32.8-12.5-45.3 0l-96 96c-12.5 12.5-12.5 32.8 0 45.3l96 96c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 150.6 182.6c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+            </div>
+            <div class="card-body">
+              <h3>Array Method</h3>
+              <p class="description">
+                Method untuk menambahkan, menghapus, dan mencari data di dalam array
+              </p>
+              <pre>push() <br>unshift() <br>pop() <br>shift() <br>includes() <br>find()</pre>
+              <button onclick="ArrayMethod()">Jalankan Method Array</button>
+            </div>
+          </div>
+
+          <!-- ForEach -->
+           <div class="card">
+            <div class="card-body">
+              <h3>forEach()</h3>
+              <p class="description">
+                Digunakan untuk menjalankan perintah pada setiap data di dalam array.</p>
+                <pre>const siswa = ["Atha", "Haidar", "Iqbal"]; <br>siswa.forEach((nama) =><br>{console.log("Hadir:", nama);});</pre>
+                  <button onclick="contohForEach()">Coba di Console
+                  </button>
+                </div>
+              </div>
+
+              <!-- Find -->
+               <div class="card">
+                <div class="card-body">
+                  <h3>find()</h3>
+                  <p class="description">
+                    Digunakan untuk mencari data pertama yang sesuai dengan kondisi tertentu.</p>
+                    <pre>const siswa = [<br>{ nama: "Amaris", tinggi: 172 },<br>{ nama: "Anggun", tinggi: 180 }<br>];<br>siswa.find((s) => s.tinggi === 172);</pre>
+                    <button onclick="contohFind()">Coba di Console
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Some -->
+                 <div class="card">
+                  <div class="card-body">
+                    <h3>some()</h3>
+                    <p class="description">Digunakan untuk mengecek apakah setidaknya ada satu data yang memenuhi kondisi.</p>
+                    <pre>const stock = [15, 0, 8, 20];<br>stock.some((n) => n === 0);</pre>
+                    <button onclick="contohSome()">Coba di Console
+
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Every -->
+                 <div class="card">
+                  <div class="card-body">
+                    <h3>every()</h3>
+                    <p class="description">
+                      Digunakan untuk mengecek apakah semua data memenuhi kondisi tertentu.</p>
+                      <pre>const umur = [20, 21, 22];<br>umur.every((n) => n >= 18);</pre>
+                      <button onclick="contohEvery()">Coba di Console
+
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Includes -->
+                   <div class="card">
+                    <div class="card-body">
+                      <h3>includes()</h3>
+                      <p class="description">
+                        Digunakan untuk mengecek apakah suatu nilai terdapat di dalam array.
+                      </p>
+                      <pre>const angka = [1, 2, 3, 4, 5];<br>angka.includes(3);</pre>
+                      <button onclick="contohIncludes()">
+                        Coba di Console
+                      </button>
+                    </div>
+                  </div>
+        </div>
+        </div>
+      </main>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

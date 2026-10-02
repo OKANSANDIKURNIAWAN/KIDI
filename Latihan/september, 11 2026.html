@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DESTRUCTURING, SPREAD OPERATOR, REST OPERATOR</title>
+  </head>
+  <body>
+    <script>
+      // Destructuring adalah membongkar
+      // spread operator adalah menggabungkan
+      // rest operator adalah cara untuk mengumpulkan sisa properti atau elemen array menjadi satu variabel
+
+      // //DESTRUCTURING
+      // Data objek utama
+      //   const wallet = { user: "Budi", Saldo: "5000000" };
+
+      //   //cara lama
+      //   const userLama = wallet.user;
+      //   const saldoLama = wallet.Saldo;
+      //   console.log(userLama, " memiki saldo sebesar Rp", saldoLama);
+
+      //   // cara baru
+      //   const { user, Saldo } = wallet;
+      //   console.log(user, "memiliki saldo sebesar Rp", Saldo);
+
+      //   //SPREAD OPERATOR
+      //   const timA = ["Andika", "Budi", "Citra", "Dinda"];
+      //   const timB = ["Sigit", "Raffa", "Farel", "Zaki"];
+      //   const timC = ["Callis", "ALverus", "Rizky", "Daffa"];
+      //   const timGabungan = [...timA, ...timB, ...timC];
+      //   console.log("Tim gabungan", timGabungan);
+
+      //REST OPERATOR
+      //   const siswa = ["Okan", "Budi", "Citra", "Dinda", "Sigit"];
+      //   const [ketua, wakil, ...apa] = siswa;
+      //   console.log("Ketua:", ketua);
+      //   console.log("Wakil:", wakil);
+      //   console.log("Anggota:", apa);
+
+      // daftar pemain
+      // const juara = [
+      //   "Coach Justin",
+      //   "Ernando Ari",
+      //   "Arez",
+      //   "Tegar",
+      //   "Audrey",
+      //   "Khalisa",
+      //   "Callista",
+      // ];
+
+      // //   mengaambil pelatoh, kiper, dan cadangan
+      // const [ketua, wakil, ...anggota] = juara;
+      // console.log("Ketua: ", ketua);
+      // console.log("Wakil: ", wakil);
+      // console.log("Anggota: ", anggota);
+      // console.log("Jumlah total :", anggota.length, "orang");
+
+      // const property = { nama: "Arez", kelas: "10 RPL" };
+      // const { nama, kelas } = property;
+      // console.log(nama, "berada di kelas", kelas);
+
+      const buah = {
+        buahPertama: "Apel",
+        buahKedua: "Pisang",
+        buahKetiga: "Pepaya",
+      };
+      const { buahPertama, buahKedua } = buah;
+      console.log(buahPertama);
+      console.log(buahKedua);
+    </script>
+  </body>
+</html>

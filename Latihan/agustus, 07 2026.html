@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="cekStatus()">cek status</button>
+    <script>
+      // 1. Function Expression
+      function sapaSekolah(namaSiswa, namaKopi, rasaKopi) {
+        console.log(
+          namaSiswa + " memesan kopi " + namaKopi + " rasanya " + rasaKopi,
+        );
+      }
+
+      sapaSekolah("Theo", "latte", "manis");
+      sapaSekolah("Arez", "expresso", "pahit");
+
+    //   2. Function Alert
+      function cekStatus() {
+        alert("Status: Alert dalam function bisa berjalan");
+      }
+
+        // 3. Function Return/declaration
+
+            function perkalian(a, b) {
+                return a * b;
+            }
+            let total = perkalian(5, 4);
+            console.log("Total perkalian:", total);
+
+             function hitungLuasPersegi(sisi, sisi) {
+            return sisi * sisi;
+            }
+            let Luas = hitungLuasPersegi(10, 10);
+            console.log("Luas persegi:", Luas);
+    </script>
+  </body>
+</html>

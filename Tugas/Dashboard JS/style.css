@@ -1,0 +1,252 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0f172a;
+  color: #fff;
+}
+
+.header {
+  padding: 50px 8%;
+  border-bottom: 1px solid #334155;
+}
+
+.hero h1 {
+  font-size: 48px;
+  font-weight: 700;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.hero h3 {
+  font-size: 35px;
+  margin-bottom: 25px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  color: #bdbdbd;
+}
+
+.hero p {
+  color: #bdbdbd;
+  font-size: 18px;
+  max-width: 700px;
+  line-height: 1.7;
+}
+
+.maincontent {
+  padding: 60px 8%;
+}
+
+.card-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.card {
+  flex-direction: column;
+  display: flex;
+  background: #1f2937;
+  border: 1px solid #374151;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card:hover {
+  border-color: #0ea5e9;
+  box-shadow: 0 15px 35px rgba(212, 175, 55, 0.2);
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 22px;
+  background: #161616;
+  font-size: 15px;
+  border-bottom: 1px solid #374151;
+}
+
+.card-body {
+  padding: 25px;
+  flex: 1;
+}
+
+.card-body h3 {
+  color: #f8fafc;
+  margin-bottom: 12px;
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.description {
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+#demo,
+#demo1,
+#demo2 {
+  background: #0f172a;
+  border: 1px dashed #475547;
+  border-radius: 12px;
+  padding: 35px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  min-height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  width: 100%;
+}
+
+img {
+  display: block;
+  margin: 20px auto;
+  width: 120px;
+}
+
+button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #0ea5e9, #0ea5e9);
+  color: #111;
+  font-weight: bold;
+  transition: 0.25s;
+}
+
+button:hover {
+  background: #94a3b8;
+  transform: scale(1.03);
+}
+
+.button-group {
+  display: flex;
+  gap: 12px;
+}
+
+.button-group button {
+  flex: 1;
+}
+
+.card-calc {
+  grid-column: span 2;
+}
+
+.number {
+  font-size: 25px;
+  color: #d4af37;
+  font-weight: bold;
+  margin-bottom: 13px;
+  opacity: 0.8;
+}
+
+input,
+select {
+  padding: 15px;
+  border-radius: 10px;
+  background: #0f172a;
+  border: 1px solid #475569;
+  color: white;
+}
+
+#hasilFunction,
+#hasilReturn {
+  background: #0f172a;
+  border: 1px dashed #475569;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 17px;
+  min-height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.8;
+  font-weight: bold;
+}
+
+pre {
+  background: #0f172a;
+  border: 1px solid #374151;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  color: #cbd5e1;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  overflow-x: auto;
+}
+
+#hasilFunction + button,
+#hasilReturn + button {
+  width: 100%;
+}
+
+.card-syntax pre {
+  margin-top: 15px;
+}
+
+.function-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.function-input input {
+  flex: 1;
+  width: 100%;
+}
+
+@media (max-width: 1000px) {
+  .card-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .header {
+    padding: 40px 25px;
+  }
+
+  .maincontent {
+    padding: 40px 25px;
+  }
+
+  .hero h1 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .card-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .calc {
+    grid-template-columns: 1fr;
+  }
+
+  .calc span {
+    display: none;
+  }
+}

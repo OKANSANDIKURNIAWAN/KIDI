@@ -137,3 +137,118 @@ function contohIncludes() {
 
   console.log("Apakah angka 3 ada di dalam array?", hasil);
 }
+
+// TODOLIST
+
+let dashboardTasks = [];
+
+function renderDashboardTasks() {
+  const dashboardTodo = document.getElementById("dashboardTodo");
+  const dashboardDone = document.getElementById("dashboardDone");
+
+  dashboardTodo.innerHTML = "";
+  dashboardDone.innerHTML = "";
+
+  const tugasBelumSelesai = dashboardTasks.filter(
+    (task) => task.status === "TODO",
+  );
+
+  const tugasSelesai = dashboardTasks.filter((task) => task.status === "DONE");
+
+  tugasBelumSelesai.forEach((task) => {
+    const item = document.createElement("div");
+
+    item.className = "todo-item";
+
+    item.innerHTML = `
+      <span>${task.judul}</span>
+
+      <button onclick="selesaikanDashboardTask(${task.id})">
+        Selesai
+      </button>
+    `;
+
+    dashboardTodo.appendChild(item);
+  });
+
+  tugasSelesai.forEach((task) => {
+    const item = document.createElement("div");
+
+    item.className = "todo-item done";
+
+    item.innerHTML = `
+      <span>${task.judul}</span>
+    `;
+
+    dashboardDone.appendChild(item);
+  });
+}
+
+// Menambahkan tugas baru
+function tambahDashboardTask() {
+  const input = document.getElementById("dashboardTask");
+
+  const teksInput = input.value.trim();
+
+  if (teksInput === "") {
+    alert("Tugas tidak boleh kosong!");
+    return;
+  }
+
+  // Membuat tugas baru
+  const tugasBaru = {
+    id: Date.now(),
+    judul: teksInput,
+    status: "TODO",
+  };
+
+  dashboardTasks = [...dashboardTasks, tugasBaru];
+
+  console.log("Tugas ditambahkan:", tugasBaru);
+
+  input.value = "";
+  renderDashboardTasks();
+}
+function selesaikanDashboardTask(idTask) {
+  const taskDipilih = dashboardTasks.find((task) => task.id === idTask);
+
+  if (taskDipilih) {
+    taskDipilih.status = "DONE";
+
+    console.log("Tugas selesai:", taskDipilih);
+
+    renderDashboardTasks();
+  }
+}
+renderDashboardTasks();
+
+// JQUERY PREVIEW
+
+function previewJqueryText() {
+  const judul = document.getElementById("jqueryJudul");
+  const deskripsi = document.getElementById("jqueryDeskripsi");
+
+  judul.textContent = "Judul Berhasil Diubah!";
+  deskripsi.textContent = "Sekarang deskripsi berhasil diubah!";
+
+  judul.style.color = "#ff5733";
+
+  console.log("jQuery: text() dan css()");
+}
+
+function previewJqueryBox() {
+  const box = $("#jqueryBox");
+
+  box.slideToggle(400);
+  console.log("jQuery: slideToggle() - Animasi 400 ms");
+}
+
+function previewJqueryDark() {
+  const preview = document.querySelector(".jquery-preview");
+  const box = document.getElementById("jqueryBox");
+
+  preview.classList.toggle("jquery-dark");
+  box.classList.toggle("jquery-dark-box");
+
+  console.log("jQuery: toggleClass() - Dark Mode");
+}

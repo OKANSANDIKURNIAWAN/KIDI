@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Rangkuman Tugas - jQuery & Toast</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="grid-item header">
+        <h1>Dashboard Rangkuman Tugas</h1>
+        <h3>Okan Sandi Kurniawan | SIJA</h3>
+      </div>
+
+      <div class="grid-item maincontent">
+        <div class="card-wrapper">
+
+          <!--  Jquery dasar ganti warna -->
+          <div class="card">
+            <h3>1. jQuery Dasar & Ganti Tema</h3>
+            <p id="teksDeskripsi">
+              Manipulasi DOM, ubah teks, dan fitur tombol untuk mengganti tema
+              halaman secara instan.
+            </p>
+            <div class="demo-box" id="kotakDemo">Kotak Animasi Slide</div>
+            <button id="btnUbahTeks">Ubah Teks & Warna</button>
+            <button id="btnToggleBox">Sembunyikan/Tampilkan Kotak</button>
+            <button id="btnGantiTema" style="background-color: #475569">
+              Ganti Tema (Dark/Light)
+            </button>
+          </div>
+
+          <!-- Toast Notification System -->
+          <div class="card">
+            <h3>2. Toast Notification System</h3>
+            <p>
+              Sistem notifikasi pop-up melayang dengan durasi aman dan stabil (4
+              detik).
+            </p>
+            <button class="btn-success" id="triggerSukses">Kirim Data</button>
+            <button class="btn-error" id="triggerError">Kirim Error</button>
+            <button class="btn-info" id="triggerInfo">Informasi Sistem</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-item footer">
+        <p>Copyright &copy; 2026 Okan Sandi Kurniawan. All rights reserved.</p>
+      </div>
+    </div>
+
+  
+    <div class="toast-box" id="globalToast">
+      <span id="globalToastText">Pesan notifikasi...</span>
+      <div id="toastProgres"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

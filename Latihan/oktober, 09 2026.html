@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toast Notification System</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #ffed4e;
+        padding: 30px;
+        transition: 0.3s;
+      }
+
+      .container {
+        max-width: 450px;
+        margin: auto;
+        background-color: #fffffe;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(185, 184, 184, 0.895);
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 34px;
+        color: #000000;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 14px;
+        color: #171414;
+        margin-bottom: 20px;
+      }
+
+      .btn-group {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      button {
+        padding: 12px;
+        color: rgb(0, 0, 0);
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        /* font-weight: bold; */
+        font-size: 14px;
+        transition: 0.2s;
+      }
+
+      #btnSukses {
+        background-color: #00ff3c;
+      }
+      #btnSukses:hover {
+        background-color: #a2a3a2;
+      }
+
+      #btnError {
+        background-color: #f83f3f;
+      }
+      #btnError:hover {
+        background-color: #a2a3a2;
+      }
+
+      #btnInfo {
+        background-color: #00bfff;
+      }
+      #btnInfo:hover {
+        background-color: #a2a3a2;
+      }
+
+      .toast-box {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px 20px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        color: #ffffff;
+        font-weight: bold;
+        display: none; /*--> Menyembunyikan toast secara default */
+        z-index: 9999;
+        overflow: hidden;
+      }
+
+      /* Loading waktu mundur */
+      #toastProgres {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: #f83f3f;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Toast Notification System</h1>
+      <p>Klik Tombol di bawah untuk menampilkan notifikasi:</p>
+      <div class="btn-group">
+        <button id="btnSukses">Kirim data berhasil (Sukses)</button>
+        <button id="btnError">Kirim data gagal (Error)</button>
+        <button id="btnInfo">Informasi System</button>
+      </div>
+
+      <!-- Kotak toast melayang -->
+      <div class="toast-box" id="myToast">
+        <span id="toastText"> Pesan notifikasi akan muncul di sini </span>
+        <div id="toastProgres"></div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        function tampilkanToast(pesan, warna, durasi = 2000) {
+          $("#myToast")
+            .css("background-color", warna)
+            .stop(true, true)
+            .fadeIn(300);
+
+          $("#toastText").text(pesan);
+
+          $("#toastProgres")
+            .stop(true, true)
+            .css({ width: "100%", display: "block" })
+            .animate({ width: "0%" }, durasi, function () {
+              $("#myToast").stop(true, true).fadeOut(300);
+            });
+        }
+
+        $("#btnSukses").click(function () {
+          tampilkanToast(
+            "Berhasil!!...data kamu telah tersimpan",
+            "#029e26",
+            2000,
+          );
+        });
+
+        $("#btnError").click(function () {
+          tampilkanToast(
+            "Gagal!!...data kamu tidak tersimpan",
+            "#f83f3f",
+            2000,
+          );
+        });
+
+        $("#btnInfo").click(function () {
+          tampilkanToast(
+            "Info!!...ini adalah informasi system",
+            "#019dd1",
+            2000,
+          );
+        });
+      });
+    </script>
+  </body>
+</html>

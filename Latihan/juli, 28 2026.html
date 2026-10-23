@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // PERKALIAN
+      function calculate() {
+        var myBox1 = document.getElementById("box1").value;
+        var myBox2 = document.getElementById("box2").value;
+        var result = document.getElementById("result");
+        var myResult = myBox1 * myBox2;
+        result.value = myResult;
+
+        // var = varaible (fungsinya untuk memberi nama yang bisa dimasukan sesuatu)
+        // Kenapa harus ada value? karena value itu untuk mengambil nilai dari inputan, jadi kalau tidak ada value maka tidak bisa mengambil nilai dari inputan
+      }
+
+      //   CONTOH "LET"
+      let buah = "Durian";
+    //   let buah = "Mangga"; --> intinya dia harus 1 karena gabisa dideklarasikan/disebutkan ulang
+      window.alert(buah);
+
+    </script>
+  </head>
+  <body>
+    <h2>Control Color</h2>
+    <p id="demo">This is the next</p>
+    <button
+      type="button"
+      onclick="document.getElementById('demo').style.color = 'red'"
+    >
+      Red Text
+    </button>
+
+    <button
+      type="button"
+      onclick="document.getElementById('demo').style.color = 'blue'"
+    >
+      Blue Text
+    </button>
+    <!-- menambahkan style.color untuk mengontrol warna teks -->
+
+    <!-- SHOWING -->
+
+    <h2>Control Show/Hide</h2>
+    <p id="demo2">Aku dapat menghilang</p>
+    <button
+      type="button"
+      onclick="document.getElementById('demo2').style.display = 'none'"
+    >
+      Menghilang
+    </button>
+
+    <button
+      type="button"
+      onclick="document.getElementById('demo2').style.display = 'block'"
+    >
+      Muncul
+    </button>
+    <!-- menambahkan style.display untuk mengontrol muncul/hilangnya elemen. Hilang = None -->
+
+    <!-- UNTUK PERKALIAN -->
+    <h2>Perkalian</h2>
+    <table width="250px" border="0">
+      <tr>
+        <th>Box 1</th>
+        <th></th>
+        <th>Box 2</th>
+        <th></th>
+        <th>Result</th>
+      </tr>
+      <tr>
+        <td><input type="text" id="box1" oninput="calculate()" /></td>
+        <td>x</td>
+        <td><input type="text" id="box2" oninput="calculate()" /></td>
+        <td>=</td>
+        <td><input id="result" /></td>
+      </tr>
+    </table>
+  </body>
+</html>

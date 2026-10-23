@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // //CONTOH VALIDASI PEMBAYARAN
+      // function prosesPembayaran(jumlah){
+      //     try{
+      //         console.log("1. Proses Pembayaran...");
+      //         if (jumlah < 10000){
+      //             throw new Error("Minimal Pembayaran adalah Rp.10.000!");
+      //         }
+      //         console.log(`2. Pembayaran Rp. ${jumlah} Berhasil`);
+      //     } catch (error) {
+      //         console.log("3. [ERROR]", error.message);
+      //     } finally {
+      //         console.log("4. Mematikan Animasi Loading");
+      //     }
+      // }
+
+      // prosesPembayaran(15000);
+      // prosesPembayaran(10000);
+
+      // // validasi umur pembuatan akun
+      // function cekSaldo(saldo){
+      //     try{
+      //         console.log("1. Proses Pengecekan saldo...");
+      //         if (saldo < 100000){
+      //             throw new Error("Minimal saldo adalah Rp.100.000 ");
+      //         }
+      //         console.log(`2. Penarikan saldo Berhasil, sisa saldo anda Rp. ${saldo}`);
+      //     } catch (error) {
+      //         console.log("3. [ERROR]", error.message);
+      //     } finally {
+      //         console.log("4. Sesi ATM selesai");
+      //     }
+      // }
+
+      // // cekSaldo(50000);
+      // cekSaldo(100000);
+
+      //CONTOH 1. Level Member
+      // let hari = "SENIN";
+      // switch (hari) {
+      //     case "SENIN":
+      //     case "SELASA":
+      //     case "RABU":
+      //     case "KAMIS":
+      //     case "JUMAT":
+      //     console.log("hari sekolah harus semangat");
+      //     break;
+      //     case "SABTU":
+      //     case "MINGGU":
+      //     console.log("hari libur- full healing ");
+      //     break;
+      //     default:
+      //         console.log("nama hari tidak valid");
+      //         break;
+      // }
+
+      //CONTOH MENAMPILKAN ISI ARRAY
+      // console.log("---DAFTAR SEPATU (FOR ... OF)---");
+      // let sepatulist =["Nike","Puma","Adidas"];
+      // for (let sepatu of sepatulist) {
+      // console.log("sepatu : ", sepatu);
+      // }
+
+      //     //CONTOH MENAMPILKAN DATA OBJEK DENGAN FOR...IN
+      //     console.log("---Detail Profil Hp (FOR ... IN---");
+      //     let hpDetail = {
+      //         merk:"Samsung",
+      //         ram:"8GB",
+      //         harga:3000000
+      //     };
+
+      //     for (let key in hpDetail) {
+      //     console.log(`${key} : ${hpDetail[key]}`);
+      // }
+
+      function prosesPembayaran(kecepatan) {
+        try {
+          console.log("Kecepatan...");
+          if (kecepatan > 80) {
+            throw new Error("Bahaya teralu kencang!");
+          }
+          console.log(`Kecepatan ${kecepatan} aman`);
+        } catch (error) {
+          console.log("[EROR]", error.message);
+        } finally {
+          console.log("Selesai cek kecepatan");
+        }
+      }
+
+      prosesPembayaran(70);
+      prosesPembayaran(100);
+    </script>
+  </body>
+</html>

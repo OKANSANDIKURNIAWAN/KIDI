@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexbox & Grid</title>
+  </head>
+
+  <style>
+    .navbar {
+      /* aktifin flex yang fungsinya untuk mengatur/mengunci agar element simetris */
+      display: flex;
+      /* mengatur jarak antar elemen */
+      justify-content: space-between;
+      /* mengatur posisi agar elemen berada di tengah secara vertikal */
+      align-items: center;
+      background-color: transparent; /* warna latar belakang navbar */
+      /* background-color: #e2ff5e; */
+      color: black;
+      /* menambahkan padding untuk mengatur jarak dalam */
+      padding: 10px 20px;
+      /* margin: 10px 20px; --> menambahkan margin untuk mengatur jarak luar */
+    }
+
+    .menu-links {
+      /* menghilangkan bullet points pada list */
+      list-style: none;
+      /* mengatur jarak antar elemen dalam menu */
+      display: flex;
+      /* menambahkan jarak antar elemen atau menu*/
+      gap: 20px;
+    }
+    .menu-links li a {
+      /* mengatur warna teks pada link */
+      color: rgb(8, 6, 6);
+      /* menghilangkan garis bawah pada link */
+      text-decoration: none;
+    }
+  </style>
+  <body>
+    <nav class="navbar">
+      <div class="logo">Contoh Logo</div>
+      <ul class="menu-links">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">History</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </body>
+</html>

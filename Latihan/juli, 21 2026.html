@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Introduction</title>
+  </head>
+  <body>
+    <h1>Change HTML Content</h1>
+    <p id="demo">Aku akan berubah!</p>
+    <button
+      type="button"
+      onclick="document.getElementById('demo').innerHTML = 'Aku sudah berubah!'"
+    >
+      Klik aku!
+    </button>
+
+    <h1>Change HTML Attribute</h1>
+    <button
+      onclick="
+        document.getElementById('myImage').src =
+          'https://www.w3schools.com/js/pic_bulbon.gif'
+      "
+    >
+      Color
+    </button>
+
+    <img
+      id="myImage"
+      src="https://www.w3schools.com/js/pic_bulboff.gif"
+      style="width: 100px"
+    />
+    <button
+      onclick="
+        document.getElementById('myImage').src =
+          'https://www.w3schools.com/js/pic_bulboff.gif'
+      "
+    >
+      Black and White
+    </button>
+  </body>
+</html>

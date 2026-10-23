@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // MENGUBAH TEXT MENJADI KAPITAAL
+      //   let namaSiswa = "  Okan Sandi ";
+      //   let namaKapital = namaSiswa.toUpperCase();
+      //   console.log("Setelah Kapital:", namaKapital);
+
+      //   MENGUBAH TEXT MENJADI RAPI
+      //   let namaSiswa = "  Okan Sandi ";
+      //   let namaKecil = namaSiswa.trim();
+      //   console.log("Setelah Trim:", namaKecil);
+
+      //   MENGUBAH TEXT MENJADI HURUF KECIL
+      //   let namaSiswa = "  Okan Sandi ";
+      //   let namaKecil = namaSiswa.toLowerCase();
+      //   console.log("Setelah Trim:", namaKecil);
+
+      //   let daftarNama = ["Amaris", "Atha", "Azahwa", "Sandy", "Elok"];
+      //   console.log("Daftar Nama XII SIJA 2:", daftarNama);
+
+      //   MENAMBAHKAN ARRAY KE DAFTAR/LIST PALING BAWAH
+      //   let daftarNama = ["Amaris", "Atha", "Azahwa", "Sandy", "Elok"];
+      //   daftarNama.push("Feliks");
+      //   console.log("Daftar Nama XII SIJA 2:", daftarNama);
+
+      //   MENAMBAHKAN ARRAY KE DAFTAR PALING ATAS/DEPAN
+      let daftarNama = ["Amaris", "Atha", "Azahwa", "Sandy", "Elok"];
+      daftarNama.unshift("Anggun");
+      //   console.log("Daftar Nama XII SIJA 2:", daftarNama);
+
+      //   MENGHAPUS DAFTAR PALING BAWAH/BELAKANG
+      //   let daftarNama = ["Amaris", "Atha", "Azahwa", "Sandy", "Elok"];
+      //   daftarNama.pop();
+      //   console.log("Daftar Nama XII SIJA 2:", daftarNama);
+
+      //   MENGHAPUS DAFTAR PALING DEPAN/ATAS
+      //   daftarNama.shift();
+      //   console.log("Daftar Nama XII SIJA 2:", daftarNama);
+
+      //   MENCARI DAFTAR
+      //   let adaHaidar = daftarNama.includes("Haidar");
+      //   console.log("Apakah ada Haidar?", adaHaidar);
+
+    //   MENCARI DAFTAR YANG JUMLAH HURUF NYA LEBIH ATAU KURANG SESUAI KETENTUAN
+      let namaPanjang = daftarNama.find((nama) => nama.length < 5);
+      console.log("yang namannya terdapat huruf lebih dari 4", namaPanjang);
+    </script>
+  </body>
+</html>

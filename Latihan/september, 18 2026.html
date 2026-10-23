@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JAVASCRIPT ARRAY METHODS MODERN</title>
+  </head>
+  <body>
+    <!-- forEach: panggil satu persatu (ex. absen)-->
+    <!-- find: Mencari data -->
+    <!-- some: Pengecekan minimal satu ada, misal apakah ada yang tingginya 172 maka jawabannya TRUE -->
+    <!-- every: Pengecekan seluruh anggota, misal apakah ada yang tingginya 172, maka jawabanya FALSE, karena keywordnya adalah "SELURUH ANGGOTa", event ada yang 172 -->
+    <!-- includes: Cek isi kantong (True/false) -->
+
+    <script>
+      //   const siswa = ["Okan", "Budi", "Citra", "Dinda", "Sigit"];
+
+      //   // forEach: panggil satu persatu (contoh: absen)
+      //   siswa.forEach((nama) => {
+      //     console.log("Hadir:", nama);
+      //   });
+
+      //   //   CARA LAMA
+      //   const buah = ["Apel", "Mangga", "Pisang"];
+      //   for (let i = 0; i < buah.length; i++) {
+      //     console.log("Cara lama:", buah[i]);
+      //   }
+
+      //   PERULANGAN CARA BARU
+      //   const user = ["Budi", "Siti", "Sigit"];
+      //   user.forEach((nama) => {
+      //     console.log(nama + ", email pengingat sudah dikirim!");
+      //   });
+
+      //   //  find: Mencari data
+      //   const siswa = [
+      //     { nama: "Okan", tinggi: 172 },
+      //     { nama: "Budi", tinggi: 180 },
+      //     { nama: "Citra", tinggi: 165 },
+      //     { nama: "Dinda", tinggi: 172 },
+      //     { nama: "Sigit", tinggi: 175 },
+      //   ];
+
+      //   const cariSiswa = siswa.find((s) => s.tinggi === 172);
+      //   console.log("Siswa yang tingginya 172 adalah:", cariSiswa.nama);
+
+      //   // some: Pengecekan minimal satu ada, misal apakah ada yang tingginya 172 maka jawabannya TRUE
+      //   const cekTinggi = siswa.some((s) => s.tinggi === 172);
+      //   console.log("Apakah ada siswa yang tingginya 172?", cekTinggi);
+
+      //   // every: Pengecekan seluruh anggota, misal apakah ada yang tingginya 272, maka jawabanya FALSE, karena keywordnya adalah "SELURUH ANGGOTa", event ada yang 172
+      //   const cekTinggiSeluruh = siswa.every((s) => s.tinggi === 172);
+      //   console.log(
+      //     "Apakah seluruh siswa memiliki tinggi badan 172?",
+      //     cekTinggiSeluruh,
+      //   );
+
+      //   // includes: Cek isi kantong (True/false)
+      //   const angka = [1, 2, 3, 4, 5];
+      //   const cekAngka = angka.includes(3);
+      //   console.log("Apakah angka 3 ada di dalam array?", cekAngka);
+
+      //   ------INCLUDES--------
+      //   const roles = ["admin", "super admin", "editor"];
+      //   const cekEditor = roles.includes("editor");
+      //   console.log("Ada editor", cekEditor);
+
+      //   3. FIND
+      //   const cariDiatas20 = angka.find((n) => n > 20);
+      //   console.log("Find (pertama ketemu):", cariDiatas20);
+
+      //   //   4. SOME
+      //   const adaAngkaGanjil = angka.some((n) => n % 2 !== 0);
+      //   console.log("Some (Ada Ganjil?)", adaAngkaGanjil);
+
+      // 5. EVERY
+      const umur = [18, 22, 25, 17];
+      const semuaDiatas18 = umur.every((n) => n > 18);
+      console.log("Every (Semua diatas 18?)", semuaDiatas18);
+
+      const stock = [15, 0, 8, 20];
+      const adaBarang = stock.some((n) => n % 0 !== 0);
+      console.log("Ada yang stock 0", adaBarang);
+
+      const produk = [
+        { id: 1, nama: "HP" },
+        { id: 2, nama: "Laptop" },
+      ];
+      const cariId = produk.find((s) => s.id === 2);
+      console.log("Find objek id : 2", cariId);
+    </script>
+  </body>
+</html>

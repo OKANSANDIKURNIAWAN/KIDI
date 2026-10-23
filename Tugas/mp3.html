@@ -1,0 +1,594 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MP3 Player</title>
+  </head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(360deg, #c04600ad, #ffffff);
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .player {
+      width: 1000px;
+      background: #1c1a21;
+      border-radius: 15px;
+      padding: 40px;
+      border: 1px solid #2a2630;
+      border-top: 1px solid #f85b00;
+      box-shadow: 0 15px 35px rgba(172, 83, 9, 0.45);
+    }
+
+    .top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 50px;
+    }
+
+    .left {
+      width: 40%;
+    }
+
+    .right {
+      width: 60%;
+    }
+
+    .album img {
+      width: 320px;
+      height: 320px;
+      object-fit: cover;
+    }
+
+    #judul {
+      margin-top: 20px;
+      line-height: 1.15;
+      letter-spacing: 0.5px;
+      min-height: 80px;
+    }
+
+    #artis {
+      margin-top: 8px;
+      color: #bdbdbd;
+      font-weight: normal;
+    }
+
+    .playlist {
+      flex: 1;
+    }
+
+    .playlist-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .playlist-header h2 {
+      font-size: 40px;
+      color: #ff6b35;
+    }
+
+    .playlist-header span {
+      color: #999;
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 20px;
+      margin-bottom: 12px;
+      border-radius: 15px;
+      cursor: pointer;
+    }
+
+    .item:hover {
+      background: #b24b26;
+    }
+
+    .nomor {
+      width: 45px;
+      color: #999;
+      font-size: 22px;
+    }
+
+    .lagu {
+      flex: 1;
+      margin-left: 20px;
+    }
+
+    .lagu h3 {
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+
+    .lagu p {
+      color: #999;
+      font-size: 15px;
+    }
+
+    #artis,
+    .lagu p {
+      color: #8d8d97;
+    }
+
+    .durasi {
+      color: #999;
+      font-size: 18px;
+    }
+
+    .bottom {
+      margin-top: 40px;
+    }
+
+    .controls {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 20px;
+      justify-content: center;
+      align-items: center;
+      margin-right: 40px;
+    }
+
+    .controls button {
+      width: 55px;
+      height: 55px;
+      border: none;
+      border-radius: 50%;
+      background: #f2f2f2;
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+    }
+
+    .controls button:first-child {
+      margin-top: 5px;
+    }
+
+    .controls button:last-child {
+      margin-top: 5px;
+    }
+
+    #play {
+      width: 70px;
+      height: 70px;
+      font-size: 20px;
+      background: #ff6b35;
+      color: white;
+    }
+
+    audio {
+      width: 100%;
+    }
+
+    .album img {
+      border-radius: 16px;
+      border: 2px solid #2f2934;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+    }
+
+    @media (max-width: 768px) {
+      body {
+        padding: 20px;
+      }
+
+      .player {
+        width: 100%;
+        padding: 25px;
+      }
+
+      .top {
+        flex-direction: column;
+        gap: 35px;
+      }
+
+      .left,
+      .right {
+        width: 100%;
+      }
+
+      .album {
+        text-align: center;
+      }
+
+      .album img {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+      }
+
+      #judul {
+        min-height: auto;
+        font-size: 32px;
+        margin-top: 18px;
+      }
+
+      #artis {
+        font-size: 18px;
+      }
+
+      .playlist-header h2 {
+        font-size: 34px;
+        text-align: center;
+      }
+
+      .item {
+        padding: 15px;
+      }
+
+      .nomor {
+        width: 35px;
+        font-size: 18px;
+      }
+
+      .lagu {
+        margin-left: 15px;
+      }
+
+      .lagu h3 {
+        font-size: 17px;
+      }
+
+      .lagu p {
+        font-size: 14px;
+      }
+
+      .controls {
+        gap: 15px;
+      }
+
+      .controls button {
+        width: 50px;
+        height: 50px;
+        font-size: 18px;
+      }
+
+      #play {
+        width: 65px;
+        height: 65px;
+        font-size: 22px;
+      }
+    }
+  </style>
+  <body>
+    <div>
+      <div class="player">
+        <div class="top">
+          <!-- KIRI -->
+          <div class="left">
+            <div class="album">
+              <img id="cover" src="foto mp3/song1.jpg" alt="cover" />
+
+              <h1 id="judul">Waking Up Together With You</h1>
+
+              <h3 id="artis">Ardhito Pramono</h3>
+            </div>
+
+            <div class="bottom">
+              <div class="controls">
+                <!-- PREVIOUS BUTTON -->
+                <button
+                  onclick="
+                    lagu--;
+
+                    if (lagu < 1) {
+                      lagu = 5;
+                    }
+
+                    if (lagu == 1) {
+                      document.getElementById('judul').innerHTML =
+                        'Waking Up Together With You';
+                      document.getElementById('artis').innerHTML =
+                        'Ardhito Pramono';
+                      document.getElementById('cover').src =
+                        'foto mp3/song1.jpg';
+                      document.getElementById('music').src =
+                        'foto mp3/audio1.mp3';
+                      document.getElementById('music').load();
+                      document.getElementById('music').play();
+                      document.getElementById('play').innerHTML = '⏸';
+                    }
+
+                    if (lagu == 2) {
+                      document.getElementById('judul').innerHTML =
+                        'You Look Like You Love Me';
+                      document.getElementById('artis').innerHTML =
+                        'Ella Langley (feat. Riley Green)';
+                      document.getElementById('cover').src =
+                        'foto mp3/song2.jpg';
+                      document.getElementById('music').src =
+                        'foto mp3/audio2.mp3';
+                      document.getElementById('music').load();
+                      document.getElementById('music').play();
+                      document.getElementById('play').innerHTML = '⏸';
+                    }
+
+                    if (lagu == 3) {
+                      document.getElementById('judul').innerHTML =
+                        'If You Know Im Lonely';
+                      document.getElementById('artis').innerHTML = 'FUR';
+                      document.getElementById('cover').src =
+                        'foto mp3/song3.jpg';
+                      document.getElementById('music').src =
+                        'foto mp3/audio3.mp3';
+                      document.getElementById('music').load();
+                      document.getElementById('music').play();
+                      document.getElementById('play').innerHTML = '⏸';
+                    }
+
+                    if (lagu == 4) {
+                      document.getElementById('judul').innerHTML =
+                        'How Deep Is Your Love';
+                      document.getElementById('artis').innerHTML = 'Bee Gees';
+                      document.getElementById('cover').src =
+                        'foto mp3/song4.jpg';
+                      document.getElementById('music').src =
+                        'foto mp3/audio4.mp3';
+                      document.getElementById('music').load();
+                      document.getElementById('music').play();
+                      document.getElementById('play').innerHTML = '⏸';
+                    }
+
+                    if (lagu == 5) {
+                      document.getElementById('judul').innerHTML =
+                        'Did I Tell You That I Miss You';
+                      document.getElementById('artis').innerHTML = 'Adore';
+                      document.getElementById('cover').src =
+                        'foto mp3/song5.jpg';
+                      document.getElementById('music').src =
+                        'foto mp3/audio5.mp3';
+                      document.getElementById('music').load();
+                      document.getElementById('music').play();
+                      document.getElementById('play').innerHTML = '⏸';
+                    }
+                  "
+                >
+                  <p>⏮</p>
+                </button>
+
+                <!-- PLAY BUTTON -->
+                <button
+                  id="play"
+                  onclick="
+                    if (document.getElementById('music').paused) {
+                      document.getElementById('music').play();
+                      document.getElementById('play').innerHTML = '⏸';
+                    } else {
+                      document.getElementById('music').pause();
+                      document.getElementById('play').innerHTML = '▶';
+                    }
+                  "
+                >
+                  ▶
+                </button>
+
+                <!-- NEXT BUTTON -->
+                <button
+                  onclick="
+                    lagu++;
+
+                    if (lagu > 5) {
+                      lagu = 1;
+                    }
+
+                    if (lagu == 1) {
+                      document.getElementById('judul').innerHTML =
+                        'Waking Up Together With You';
+                      document.getElementById('artis').innerHTML =
+                        'Ardhito Pramono';
+                      document.getElementById('cover').src =
+                        'foto mp3/song1.jpg';
+                      document.getElementById('music').src =
+                        'foto mp3/audio1.mp3';
+                      document.getElementById('music').load();
+                      document.getElementById('music').play();
+                      document.getElementById('play').innerHTML = '⏸';
+                    }
+
+                    if (lagu == 2) {
+                      document.getElementById('judul').innerHTML =
+                        'You Look Like You Love Me';
+                      document.getElementById('artis').innerHTML =
+                        'Ella Langley (feat. Riley Green)';
+                      document.getElementById('cover').src =
+                        'foto mp3/song2.jpg';
+                      document.getElementById('music').src =
+                        'foto mp3/audio2.mp3';
+                      document.getElementById('music').load();
+                      document.getElementById('music').play();
+                      document.getElementById('play').innerHTML = '⏸';
+                    }
+
+                    if (lagu == 3) {
+                      document.getElementById('judul').innerHTML =
+                        'If You Know Im Lonely';
+                      document.getElementById('artis').innerHTML = 'FUR';
+                      document.getElementById('cover').src =
+                        'foto mp3/song3.jpg';
+                      document.getElementById('music').src =
+                        'foto mp3/audio3.mp3';
+                      document.getElementById('music').load();
+                      document.getElementById('music').play();
+                      document.getElementById('play').innerHTML = '⏸';
+                    }
+
+                    if (lagu == 4) {
+                      document.getElementById('judul').innerHTML =
+                        'How Deep Is Your Love';
+                      document.getElementById('artis').innerHTML = 'Bee Gees';
+                      document.getElementById('cover').src =
+                        'foto mp3/song4.jpg';
+                      document.getElementById('music').src =
+                        'foto mp3/audio4.mp3';
+                      document.getElementById('music').load();
+                      document.getElementById('music').play();
+                      document.getElementById('play').innerHTML = '⏸';
+                    }
+
+                    if (lagu == 5) {
+                      document.getElementById('judul').innerHTML =
+                        'Did I Tell You That I Miss You';
+                      document.getElementById('artis').innerHTML = 'Adore';
+                      document.getElementById('cover').src =
+                        'foto mp3/song5.jpg';
+                      document.getElementById('music').src =
+                        'foto mp3/audio5.mp3';
+                      document.getElementById('music').load();
+                      document.getElementById('music').play();
+                      document.getElementById('play').innerHTML = '⏸';
+                    }
+                  "
+                >
+                  <p>⏭</p>
+                </button>
+              </div>
+
+              <audio id="music" src="foto mp3/audio1.mp3"></audio>
+            </div>
+          </div>
+
+          <!-- KANAN -->
+          <div class="right">
+            <!-- PLAYLIST -->
+            <div class="playlist">
+              <div class="playlist-header">
+                <h2>Playlist</h2>
+              </div>
+
+              <br />
+
+              <div
+                class="item active"
+                onclick="
+                  lagu = 1;
+                  document.getElementById('judul').innerHTML =
+                    'Waking Up Together With You';
+                  document.getElementById('cover').src = 'foto mp3/song1.jpg';
+                  document.getElementById('music').src = 'foto mp3/audio1.mp3';
+                  document.getElementById('music').load();
+                  document.getElementById('music').play();
+                  document.getElementById('play').innerHTML = '⏸';
+                  document.getElementById('artis').innerHTML =
+                    'Ardhito Pramono';
+                "
+              >
+                <span class="nomor">01</span>
+
+                <div class="lagu">
+                  <h3>Waking Up Together With You</h3>
+                  <p>Ardhito Pramono</p>
+                </div>
+              </div>
+
+              <div
+                class="item"
+                onclick="
+                  lagu = 2;
+                  document.getElementById('judul').innerHTML =
+                    'You Look Like You Love Me';
+                  document.getElementById('cover').src = 'foto mp3/song2.jpg';
+                  document.getElementById('music').src = 'foto mp3/audio2.mp3';
+                  document.getElementById('music').load();
+                  document.getElementById('music').play();
+                  document.getElementById('play').innerHTML = '⏸';
+                  document.getElementById('artis').innerHTML =
+                    'Ella Langley (feat. Riley Green)';
+                "
+              >
+                <span class="nomor">02</span>
+
+                <div class="lagu">
+                  <h3>You Look Like You Love Me</h3>
+                  <p>Ella Langley (feat. Riley Green)</p>
+                </div>
+              </div>
+
+              <div
+                class="item"
+                onclick="
+                  lagu = 3;
+                  document.getElementById('judul').innerHTML =
+                    'If You Know Im Lonely';
+                  document.getElementById('cover').src = 'foto mp3/song3.jpg';
+                  document.getElementById('music').src = 'foto mp3/audio3.mp3';
+                  document.getElementById('music').load();
+                  document.getElementById('music').play();
+                  document.getElementById('play').innerHTML = '⏸';
+                  document.getElementById('artis').innerHTML = 'FUR';
+                "
+              >
+                <span class="nomor">03</span>
+
+                <div class="lagu">
+                  <h3>If You Know I'm Lonely</h3>
+                  <p>FUR</p>
+                </div>
+              </div>
+
+              <div
+                class="item"
+                onclick="
+                  lagu = 4;
+                  document.getElementById('judul').innerHTML =
+                    'How Deep Is Your Love';
+                  document.getElementById('cover').src = 'foto mp3/song4.jpg';
+                  document.getElementById('music').src = 'foto mp3/audio4.mp3';
+                  document.getElementById('music').load();
+                  document.getElementById('music').play();
+                  document.getElementById('play').innerHTML = '⏸';
+                  document.getElementById('artis').innerHTML = 'Bee Gees';
+                "
+              >
+                <span class="nomor">04</span>
+
+                <div class="lagu">
+                  <h3>How Deep Is Your Love</h3>
+                  <p>Bee Gees</p>
+                </div>
+              </div>
+
+              <div
+                class="item"
+                onclick="
+                  lagu = 5;
+                  document.getElementById('judul').innerHTML =
+                    'Did I Tell You That I Miss You';
+                  document.getElementById('cover').src = 'foto mp3/song5.jpg';
+                  document.getElementById('music').src = 'foto mp3/audio5.mp3';
+                  document.getElementById('music').load();
+                  document.getElementById('music').play();
+                  document.getElementById('play').innerHTML = '⏸';
+                  document.getElementById('artis').innerHTML = 'Adore';
+                "
+              >
+                <span class="nomor">05</span>
+
+                <div class="lagu">
+                  <h3>Did I Tell You That I Miss You</h3>
+                  <p>Adore</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      let lagu = 1;
+    </script>
+  </body>
+</html>

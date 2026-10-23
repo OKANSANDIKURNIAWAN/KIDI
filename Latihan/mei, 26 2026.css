@@ -1,0 +1,20 @@
+/* CSS Eksternal, adalah css yang dia berbeda file dengan file HTML */
+body {
+  color: rgba(255, 70, 70, 0.737);
+  /* untuk text kalo cuman color */
+
+  background-color: rgb(255, 255, 255);
+  /* untuk backgroundnyq yh */
+
+  font-size: 18px;
+  /* untuk ukuran font */
+
+  font-weight: 600;
+  /* untuk mengatur ketebalan font */
+
+  text-align: center;
+  /* untuk mengatur posisi text, bisa left, right, center */
+
+  text-decoration: none;
+  /* untuk mengatur dekorasi text */
+}

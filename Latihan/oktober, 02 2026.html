@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JQuery</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        padding: 20px;
+        transition: 0.3s;
+      }
+
+      .container {
+        max-width: 500px;
+        margin: auto;
+        background-color: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(185, 184, 184, 0.895);
+        text-align: center;
+      }
+
+      button:hover {
+        background-color: #939393;
+      }
+
+      .box {
+        width: 100%;
+        height: 100px;
+        background-color: #28a745;
+        margin-top: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 18px;
+        cursor: pointer;
+        border: none;
+        font-weight: bold;
+        border-radius: 8px;
+      }
+
+      h1 {
+        text-align: center;
+        color: #333;
+      }
+
+      p {
+        text-align: center;
+        color: #666;
+      }
+
+      button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin: 6px;
+        background-color: #258efe;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        /* cursor: pointer; */
+        font-weight: bold;
+      }
+
+      .dark-mode {
+        background-color: #333 !important;
+        color: white !important;
+      }
+
+      .dark-card {
+        background-color: #3b3b3b !important;
+        color: white !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- JQuery adalah library JavaScript yang dirancang untuk mempermudah pengembangan aplikasi web dengan cara yang lebih sederhana dan efisien. -->
+    <div class="container" id="cardUtama">
+      <h1 id="judul">WEBSITE INTERAKTIF YANG DIBUAT OLEH SAYA</h1>
+      <p id="deskripsi">Klik button dibawah untuk melihat JQuery!</p>
+
+      <!-- tombol aksi -->
+      <button id="btnUbahTeks">Ubah Teks dan Warna</button>
+      <button id="btnToggleBox">Sembunyikan / Tampilkan Box</button>
+      <button id="btnDarkMode">Toggle Dark Mode</button>
+
+      <!-- Tombol animasi -->
+      <div class="box" id="myBox">Halo! Saya adalah box interaktif.</div>
+    </div>
+    <script>
+      // Untuk memastikan Jquery dapat digunakan
+      $(document).ready(function () {
+        // console.log("Jquery Siap Digunakan");
+
+        $("#btnUbahTeks").click(function () {
+          $("#judul").text("Judul Berhasil Diubah!");
+          $("#deskripsi").text("Sekarang Deskripsi Berhasil Diubah!");
+          $("#judul").css("color", "#ff5733");
+        });
+      });
+
+      //   Membuat animasi meluncur
+      $(document).ready(function () {
+        $("#btnToggleBox").click(function () {
+          $("#myBox").slideToggle(400);
+        });
+      });
+
+      //   Membuat mode gelap
+      $("#btnDarkMode").click(function () {
+        $("body").toggleClass("dark-mode");
+        $("#cardUtama").toggleClass("dark-card");
+      });
+    </script>
+  </body>
+</html>

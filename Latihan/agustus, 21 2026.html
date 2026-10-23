@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Properti, Method, Object, Class</title>
+  </head>
+  <body>
+    <script>
+      // MEMBUAT OBJECT HP
+        let smartphone = {
+          // PROPERTY (Data)
+          merk: "Iphone",
+          warna: "Hitam",
+          ram: 8,
+
+          // METHOD (TINDAKAN)
+          nyalakanSenter: function () {
+            console.log("Senter HP Nyala");
+          },
+        };
+
+        // MEMANGGIL PROPERTI
+        console.log("Merk HP:", smartphone.merk);
+        console.log("Ukuran RAM:", smartphone.ram);
+        console.log("Warna HP:", smartphone.warna);
+
+        // MEMANGGIL METHOD
+        smartphone.nyalakanSenter();
+
+      //   let motor = {
+      //     // PROPERTY (Data)
+      //     merk: "Honda",
+      //     tahun: "2018",
+      //     warna: "putih",
+      //   };
+
+      //   // MEMANGGIL PROPERTI
+      //   console.log("Merk Sepeda motor:", motor.merk);
+      //   console.log("Tahun sepeda motor:", motor.tahun);
+      //   console.log("Warna sepeda motor:", motor.warna);
+
+      // MEMBUAT CETAKAN (class/prototype)
+      //   class Bank {
+      //     constructor(nama, saldo) {
+      //       this.nama = nama;
+      //       this.saldo = saldo;
+      //     }
+
+      //     chekSaldo() {
+      //       console.log(`Saldo ${this.nama} adalah Rp ${this.saldo}`);
+      //     }
+      //   }
+
+      //   let BankA = new Bank("Raka", "5.000");
+      //   let BankB = new Bank("Lani", "1.000");
+
+      //   BankA.chekSaldo();
+      //   BankB.chekSaldo();
+
+      // MATERI BARU
+      console.log("1. Datang duluan");
+      console.log("2. Segera pesan");
+      console.log("3. Pembayaran berhasil");
+      console.log("4. Struk tercetak");
+
+      // NOTED
+      // seluruh kode di atas pasti tercetak rapi dan urut
+      // 1 -> 2 -> 3 -> 4
+
+      console.log("1. Pesan ayam geprek di kasir");
+      // setTimeout mensimulasikan proses masak yang  butuh waktu 3 detik
+      setTimeout(() => {
+        console.log("3. [asyn] Ayam geprek selesai di masak");
+      }, 3000);
+      console.log("2. Sambil menunggu, saya duduk dan main HP");
+    </script>
+  </body>
+</html>

@@ -74,7 +74,6 @@ body {
   margin-bottom: 15px;
 }
 
-
 .demo-box {
   width: 100%;
   height: 50px;
@@ -181,4 +180,28 @@ body.light-theme .card {
 
 body.light-theme .card p {
   color: #475569;
+}
+
+/* Area hasil praktik Toast */
+.toast-demo {
+  margin-top: 20px;
+  padding: 18px;
+  border: 1px solid #334155;
+  border-radius: 12px;
+  background: #111827;
+}
+
+.toast-demo h4 {
+  margin: 0 0 10px;
+  color: #f8fafc;
+}
+
+.toast-demo .description {
+  margin-bottom: 16px;
+  color: #94a3b8;
+  line-height: 1.6;
+}
+
+.toast-demo button {
+  margin: 4px 4px 4px 0;
 }

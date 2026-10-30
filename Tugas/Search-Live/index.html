@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Labrasta - Menu Catalog</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #ffffff;
+        color: #2b1e16;
+        padding: 40px;
+      }
+
+      .desktop-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .hero-banner {
+        position: relative;
+        width: 100%;
+        max-height: 280px;
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 30px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      .hero-banner img {
+        width: 100%;
+        height: 100%;
+        max-height: 280px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .hero-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        color: #ffffff;
+        width: 100%;
+        padding: 0 20px;
+      }
+
+      .hero-text h1 {
+        font-size: 45px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-bottom: 5px;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+        text-align: left;
+        padding-left: 20px;
+      }
+
+      .search-container {
+        margin-bottom: 30px;
+        text-align: center;
+      }
+
+      #searchBox {
+        width: 100%;
+        max-width: 450px;
+        padding: 14px 18px;
+        background-color: #faf8f5;
+        border: 1px solid #dcd4c5;
+        border-radius: 8px;
+        font-size: 15px;
+        color: #3d2314;
+        outline: none;
+        transition: all 0.2s ease;
+      }
+
+      #searchBox:focus {
+        border-color: #6f4e37;
+        background-color: #ffffff;
+        box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.1);
+      }
+
+      .section-title {
+        font-size: 18px;
+        color: #3d2314;
+        margin-bottom: 16px;
+        font-weight: 600;
+      }
+
+      .product-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 16px;
+      }
+
+      .product-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 16px;
+        background-color: #faf8f5;
+        border: 1px solid #b99b5c;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+
+      .product-item:hover {
+        background-color: #f3efe6;
+        border-color: #6f4e37;
+      }
+
+      .product-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .product-img {
+        width: 50px;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 6px;
+        border: 1px solid #dcd4c5;
+        background-color: #eee;
+      }
+
+      .product-info {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .product-name {
+        font-weight: 600;
+        color: #3d2314;
+        font-size: 15px;
+      }
+
+      .product-price {
+        font-weight: 700;
+        color: #6f4e37;
+        font-size: 14px;
+      }
+
+      #pesanKosong {
+        display: none;
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 30px;
+        color: #721c24;
+        background-color: #f8d7da;
+        border: 1px solid #f5c6cb;
+        border-radius: 8px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="desktop-container">
+      <!-- Banner dengan Teks di Atasnya -->
+      <div class="hero-banner">
+        <img src="fotodom.jpg/banner-labrasta.jpg" alt="Banner Labrasta" />
+        <div class="hero-text">
+          <h1>LABRASTA</h1>
+        </div>
+      </div>
+
+      <!-- Live Search Box -->
+      <div class="search-container">
+        <input
+          type="text"
+          id="searchBox"
+          placeholder="Cari Produk..."
+          autocomplete="off"
+        />
+      </div>
+
+      <!-- Daftar Menu -->
+      <div class="menu-section">
+        <h2 class="section-title">Daftar Menu Tersedia</h2>
+        <div class="product-list" id="menuContainer">
+          <div id="pesanKosong">
+            Maaf, menu yang Anda cari tidak ditemukan y!!.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        var menus = [
+          // Kopi ---> menu ke 11-20
+          {
+            nama: "Espresso",
+            harga: "Rp 12.000",
+            gambar: "fotodom.jpg/espresso.jpg",
+          },
+          {
+            nama: "Americano",
+            harga: "Rp 15.000",
+            gambar: "fotodom.jpg/americano.jpg",
+          },
+          {
+            nama: "Cafe Latte",
+            harga: "Rp 20.000",
+            gambar: "fotodom.jpg/Cafe Latte.jpg",
+          },
+          {
+            nama: "Cappuccino",
+            harga: "Rp 20.000",
+            gambar: "fotodom.jpg/Cappuccino.jpg",
+          },
+          {
+            nama: "Mochaccino",
+            harga: "Rp 22.000",
+            gambar: "fotodom.jpg/Mochaccino.jpg",
+          },
+          {
+            nama: "Vanilla Latte",
+            harga: "Rp 22.000",
+            gambar: "fotodom.jpg/Vanilla Latte.jpg",
+          },
+          {
+            nama: "Caramel Latte",
+            harga: "Rp 23.000",
+            gambar: "fotodom.jpg/Caramel Latte.jpg",
+          },
+          {
+            nama: "Hazelnut Latte",
+            harga: "Rp 23.000",
+            gambar: "fotodom.jpg/Hazelnut Latte.jpg",
+          },
+          {
+            nama: "Kopi Susu Aren",
+            harga: "Rp 18.000",
+            gambar: "fotodom.jpg/Kopi Susu Aren.jpg",
+          },
+          {
+            nama: "Kopi Hitam",
+            harga: "Rp 10.000",
+            gambar: "fotodom.jpg/Kopi Hitam.jpg",
+          },
+
+          // Minuman ---> menu ke 11-20
+          {
+            nama: "Matcha Latte",
+            harga: "Rp 20.000",
+            gambar: "fotodom.jpg/Matcha Latte.jpg",
+          },
+          {
+            nama: "Taro Latte",
+            harga: "Rp 20.000",
+            gambar: "fotodom.jpg/Taro Latte.jpg",
+          },
+          {
+            nama: "Red Velvet",
+            harga: "Rp 20.000",
+            gambar: "fotodom.jpg/Red Velvet.jpg",
+          },
+          {
+            nama: "Chocolate",
+            harga: "Rp 20.000",
+            gambar: "fotodom.jpg/Chocolate.jpg",
+          },
+          {
+            nama: "Thai Tea",
+            harga: "Rp 15.000",
+            gambar: "fotodom.jpg/Thai Tea.jpg",
+          },
+          {
+            nama: "Green Tea",
+            harga: "Rp 15.000",
+            gambar: "fotodom.jpg/Green Tea.jpg",
+          },
+          {
+            nama: "Lemon Tea",
+            harga: "Rp 14.000",
+            gambar: "fotodom.jpg/Lemon Tea.jpg",
+          },
+          {
+            nama: "Lychee Tea",
+            harga: "Rp 15.000",
+            gambar: "fotodom.jpg/Lychee Tea.jpg",
+          },
+          {
+            nama: "Milk Tea",
+            harga: "Rp 15.000",
+            gambar: "fotodom.jpg/Milk Tea.jpg",
+          },
+          {
+            nama: "Air Mineral",
+            harga: "Rp 6.000",
+            gambar: "fotodom.jpg/Air Mineral.jpg",
+          },
+
+          // Pastry & Roti --> menu ke 21-30
+          {
+            nama: "Croissant",
+            harga: "Rp 16.000",
+            gambar: "fotodom.jpg/Croissant.jpg",
+          },
+          {
+            nama: "Donat Gula",
+            harga: "Rp 8.000",
+            gambar: "fotodom.jpg/Donat Gula.png",
+          },
+          {
+            nama: "Roti Bakar",
+            harga: "Rp 12.000",
+            gambar: "fotodom.jpg/Roti Bakar.jpg",
+          },
+          {
+            nama: "Roti Coklat",
+            harga: "Rp 10.000",
+            gambar: "fotodom.jpg/Roti Coklat.jpg",
+          },
+          {
+            nama: "Roti Keju",
+            harga: "Rp 10.000",
+            gambar: "fotodom.jpg/Roti Keju.jpg",
+          },
+          {
+            nama: "Cinnamon Roll",
+            harga: "Rp 15.000",
+            gambar: "fotodom.jpg/Cinnamon Roll.jpg",
+          },
+          {
+            nama: "Danish Pastry",
+            harga: "Rp 16.000",
+            gambar: "fotodom.jpg/Danish Pastry.jpg",
+          },
+          {
+            nama: "Waffle",
+            harga: "Rp 18.000",
+            gambar: "fotodom.jpg/Waffle.jpg",
+          },
+          {
+            nama: "Pancake",
+            harga: "Rp 18.000",
+            gambar: "fotodom.jpg/Pancake.jpeg",
+          },
+          {
+            nama: "Brownies",
+            harga: "Rp 14.000",
+            gambar: "fotodom.jpg/Brownies.jpg",
+          },
+
+          // Makanan Ringan / Snack --> menu ke 31-40
+          {
+            nama: "Kentang Goreng",
+            harga: "Rp 15.000",
+            gambar: "fotodom.jpg/Kentang Goreng.jpg",
+          },
+          {
+            nama: "Sosis Bakar",
+            harga: "Rp 15.000",
+            gambar: "fotodom.jpg/Sosis Bakar.jpg",
+          },
+          {
+            nama: "Nugget Goreng",
+            harga: "Rp 14.000",
+            gambar: "fotodom.jpg/Nugget Goreng.jpg",
+          },
+          {
+            nama: "Onion Rings",
+            harga: "Rp 13.000",
+            gambar: "fotodom.jpg/Onion Rings.jpg",
+          },
+          {
+            nama: "Siomay Goreng",
+            harga: "Rp 15.000",
+            gambar: "fotodom.jpg/Siomay Goreng.jpeg",
+          },
+          {
+            nama: "Cireng Isi",
+            harga: "Rp 12.000",
+            gambar: "fotodom.jpg/Cireng Isi.jpg",
+          },
+          {
+            nama: "Pisang Goreng",
+            harga: "Rp 10.000",
+            gambar: "fotodom.jpg/Pisang Goreng.jpg",
+          },
+          {
+            nama: "Tempe Mendoan",
+            harga: "Rp 10.000",
+            gambar: "fotodom.jpg/Tempe Mendoan.jpg",
+          },
+          {
+            nama: "Churros",
+            harga: "Rp 15.000",
+            gambar: "fotodom.jpg/Churros.jpg",
+          },
+          {
+            nama: "Dimsum",
+            harga: "Rp 18.000",
+            gambar: "fotodom.jpg/Dimsum.jpg",
+          },
+        ];
+
+        $.each(menus, function (index, item) {
+          var menuHTML = `
+            <div class="product-item" data-nama="${item.nama}">
+              <div class="product-left">
+                <img src="${item.gambar}" alt="${item.nama}" class="product-img">
+                <div class="product-info">
+                  <span class="product-name">${item.nama}</span>
+                </div>
+              </div>
+              <span class="product-price">${item.harga}</span>
+            </div>
+          `;
+          $("#pesanKosong").before(menuHTML);
+        });
+
+        $("#searchBox").on("keyup", function () {
+          var keyword = $(this).val().toLowerCase().trim();
+          var jumlahCocok = 0;
+
+          $(".product-item").each(function () {
+            var namaProduk = $(this).attr("data-nama").toLowerCase();
+
+            if (namaProduk.indexOf(keyword) !== -1) {
+              $(this).show();
+              jumlahCocok++;
+            } else {
+              $(this).hide();
+            }
+          });
+
+          if (jumlahCocok === 0) {
+            $("#pesanKosong").show();
+          } else {
+            $("#pesanKosong").hide();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

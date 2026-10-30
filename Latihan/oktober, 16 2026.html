@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ajax & Data Server Lokal</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #fffefe;
+        padding: 30px;
+        /* transition: 0.3s; */
+        text-align: center;
+      }
+
+      .container {
+        max-width: 500px;
+        margin: auto;
+        background-color: #fffff9;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(49, 46, 46, 0.895);
+        text-align: center;
+      }
+
+      .quote-box {
+        background-color: #ffd5d5;
+        padding: 20px;
+        border-left: 5px solid #ed3636;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        text-align: left;
+      }
+
+      .quote-text {
+        font-style: italic;
+        /* font-size: 18px; */
+        color: #000000;
+        margin-bottom: 10px;
+      }
+
+      .quote-author {
+        text-align: right;
+        font-weight: bold;
+        color: #ed3636;
+        text-align: right;
+      }
+
+      button {
+        padding: 12px 20px;
+        color: #fffefe;
+        background-color: #ed3636;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        /* transition: 0.2s; */
+        font-weight: bold;
+        width: 100%;
+      }
+
+      button:disabled {
+        background-color: #a2a3a2;
+        cursor: not-allowed;
+      }
+
+      .toast-box {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #10b981;
+        color: #fffefe;
+        display: none;
+        z-index: 999;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(49, 46, 46, 0.895);
+        /* opacity: 0;
+        transition: opacity 0.5s ease-in-out; */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3>GENERATOR KUTIPAN</h3>
+      <div class="quote-box">
+        <div class="quote-text" id="quoteText">
+          "Klik Tombol di bawah ini untuk mulai membuat server..."
+        </div>
+        <div class="quote-author" id="quoteAuthor">- Sistem</div>
+      </div>
+      <button id="btnGetQuote">Ambil Kutipan Baru</button>
+    </div>
+    <div class="toast-box" id="myToast">Data Berhasil dimuat!</div>
+
+    <script>
+      $(document).ready(function () {
+        // 1. Data server lokal (array of objects)
+        var serverData = [
+          {
+            text: "Proses mendaki gunung lebih seru untuk diceritakan.",
+            author: "Annisa Fitriani",
+          },
+          {
+            text: "Hidup adalah perjalanan, bukan tujuan.",
+            author: "Ralph Waldo Emerson",
+          },
+          {
+            text: "Kesalahan adalah bukti jika kamu sedang berusaha",
+            author: "Rani Singh",
+          },
+          {
+            text: "Kesuksesan adalah hasil dari kerja keras dan ketekunan.",
+            author: "C Powell",
+          },
+          {
+            text: "Jangan takut gagal, karena kegagalan adalah bagian dari proses belajar.",
+            author: "Thomas Edison",
+          },
+        ];
+
+        // 2. Function untuk mengambil data dari server lokal (simulasi Ajax)
+        function showToast(pesan) {
+          $("#myToast").text(pesan).fadeIn(400).delay(2000).fadeOut(400);
+        }
+
+        // event klik tombol untuk mengambil kutipan baru
+        $("#btnGetQuote").click(function () {
+          $("#btnGetQuote").text("Memuat...").prop("disabled", true); // Disable tombol saat proses
+          $("#quoteText").text("Menghubungkan ke server");
+          $("#quoteAuthor").text("- Mohon tunggu sebentar...");
+
+          // jeda waktu server 1,5 detik
+          setTimeout(function () {
+            var acak = Math.floor(Math.random() * serverData.length);
+            var dataTerpilih = serverData[acak];
+
+            // tampilkann hasil ke HTML
+            $("#quoteText").text('"' + dataTerpilih.text + '"');
+            $("#quoteAuthor").text("- " + dataTerpilih.author);
+
+            // Kembalikan tombol ke kondisi semula panggil toast sukses
+            $("#btnGetQuote")
+              .text("Mengubah Kutipan Baru Lagi")
+              .prop("disabled", false);
+            showToast("Data Berhasil ditarik ke server");
+          }, 1500);
+        });
+      });
+    </script>
+  </body>
+</html>

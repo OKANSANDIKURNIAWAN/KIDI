@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+      body {
+        font-family: sans-serif;
+        background-color: #a52b2b;
+        padding: 30px;
+        text-align: center;
+      }
+
+      .container {
+        max-width: 450px;
+        margin: auto;
+        background-color: #ffff;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba (0, 0, 0, 0.1);
+      }
+
+      h2 {
+        color: #4b0000;
+        margin-bottom: 15px;
+      }
+
+      #searchBox {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        border: 2px solid #afafaf;
+        border-radius: 8px;
+        box-sizing: border-box;
+        font-size: 14px;
+        transition: 0.2s;
+      }
+
+      #searchBox:focus {
+        border-color: #ff4747;
+        outline: none;
+      }
+
+      .product-list {
+        text-align: left;
+        flex-direction: column;
+        display: flex;
+        gap: 10px;
+      }
+
+      .product-item {
+        padding: 12px 15px;
+        background-color: #ffeded;
+        border-radius: 6px;
+        border: 1px solid #4c4c4c;
+        font-weight: 500;
+      }
+
+      .product-item:hover {
+        background-color: #ffbaba;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Cari Produk di Ikubaru Shop</h2>
+      <img src="images.jpg" alt="Logo Ikubaru Shop" width="380" height="250" />
+
+      <input type="text" id="searchBox" placeholder="Cari produk..." />
+      <!-- Daftar Produk -->
+      <div class="product-list">
+        <div class="product-item" data-nama="Black Coffee">
+          Black Coffee - Rp. 10.000
+        </div>
+        <div class="product-item" data-nama="Cookies">Cookies - Rp. 8.000</div>
+        <div class="product-item" data-nama="Croissant">
+          Croissant - Rp. 11.000
+        </div>
+        <div class="product-item" data-nama="Matcha">Matcha - Rp. 12.000</div>
+        <div class="product-item" data-nama="Thai Tea">
+          Thai Tea - Rp. 10.000
+        </div>
+        <div class="product-item" data-nama="Pancong">Pancong - Rp. 7.000</div>
+        <div class="product-item" data-nama="Leci Tea">
+          Americano - Rp. 12.000
+        </div>
+        <div class="product-item" data-nama="Coffe Latte">
+          Coffe Latte - Rp. 13.000
+        </div>
+        <div class="product-item" data-nama="Tea">Tea - Rp. 5.000</div>
+        <div class="product-item" data-nama="Chocolate Bread">
+          Chocolate Bread - Rp. 9.000
+        </div>
+        
+        <div id="pesanKosong" style="color: #ff0000">
+          Maaf produk yang anda cari tidak tersedia
+        </div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function () {
+        // Keyup = senor untuk menangkap inputan yang diketik di searchBox
+        $("#searchBox").keyup(function () {
+          //  1) ambil daya uamh diketik, ubah menjadi kecil semua
+          var keyword = $(this).val().toLowerCase();
+          var jumlahTampil = 0; // untuk menghitung jumlah produk yang cocok
+
+          // 2) filter produk berdasarkan keyword
+          $(".product-item").each(function () {
+            var namaProduk = $(this).data("nama").toLowerCase();
+            if (namaProduk.includes(keyword)) {
+              $(this).show(); // tampilkan produk jika cocok
+              jumlahTampil++; // tambahkan jumlah produk yang cocok
+            } else {
+              $(this).hide(); // sembunyikan produk jika tidak cocok
+            }
+          });
+
+          //   Jika tidak ada satupun produk yang cocok, tampilkan pesan "Maaf produk yang anda cari tidak tersedia"\
+          if (jumlahTampil === 0) {
+            $("#pesanKosong").show();
+          } else {
+            $("#pesanKosong").hide();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

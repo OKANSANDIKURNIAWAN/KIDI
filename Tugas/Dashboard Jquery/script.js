@@ -61,3 +61,57 @@ $(document).ready(function () {
     );
   });
 });
+
+$(document).ready(function () {
+  let timerToast;
+
+  function tampilkanToast(pesan, jenis) {
+    const toast = $("#globalToast");
+    const teks = $("#globalToastText");
+    const progres = $("#toastProgres");
+
+    // Hentikan timer dan animasi sebelumnya
+    clearTimeout(timerToast);
+    toast.stop(true, true);
+    progres.stop(true, true);
+
+    // Atur pesan dan warna notifikasi
+    teks.text(pesan);
+
+    const warna = {
+      sukses: "#10b981",
+      error: "#ef4444",
+      info: "#3b82f6",
+    };
+
+    toast.css("border-left", `4px solid ${warna[jenis]}`);
+
+    // Tampilkan toast
+    toast.fadeIn(200);
+
+    // Jalankan garis progres selama 4 detik
+    progres.css({
+      width: "100%",
+      background: warna[jenis],
+    });
+
+    progres.animate({ width: "0%" }, 4000, "linear");
+
+    // Sembunyikan setelah 4 detik
+    timerToast = setTimeout(function () {
+      toast.fadeOut(200);
+    }, 4000);
+  }
+
+  $("#triggerSukses").click(function () {
+    tampilkanToast("Data berhasil dikirim!", "sukses");
+  });
+
+  $("#triggerError").click(function () {
+    tampilkanToast("Terjadi kesalahan saat mengirim data!", "error");
+  });
+
+  $("#triggerInfo").click(function () {
+    tampilkanToast("Sistem berjalan dengan normal.", "info");
+  });
+});
